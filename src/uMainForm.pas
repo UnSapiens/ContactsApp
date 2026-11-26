@@ -102,6 +102,9 @@ begin
   edtFio.MaxLength := cMaxFilterTextLen;
   edtContact.MaxLength := cMaxFilterTextLen;
   edtAge.MaxLength := cMaxAgeTextLen;
+
+  btnSearch.Default := True;
+  edtAge.NumbersOnly := True;
 end;
 
 function TMainForm.CalcMinLeftPanelWidth: Integer;

@@ -23,7 +23,7 @@ type
     btnCancel: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure dblcbTypeCloseUp(Sender: TObject);
+    procedure dblcbTypeClick (Sender: TObject);
     procedure btnOkClick(Sender: TObject);
   private
     procedure InitCaptions;
@@ -57,12 +57,15 @@ begin
   btnOk.Caption := cBtnSave;
   btnCancel.Caption := cBtnCancel;
   edtValue.MaxLength := cMaxContactValueLen;
+
+  btnOk.Default := True;
+  btnCancel.Cancel := True;
 end;
 
 procedure TAddContactForm.FormCreate(Sender: TObject);
 begin
   InitCaptions;
-  dblcbType.OnCloseUp := dblcbTypeCloseUp;
+  dblcbType.OnClick := dblcbTypeClick;
 end;
 
 procedure TAddContactForm.FormShow(Sender: TObject);
@@ -73,7 +76,7 @@ begin
   UpdateValueMaxLength;
 end;
 
-procedure TAddContactForm.dblcbTypeCloseUp(Sender: TObject);
+procedure TAddContactForm.dblcbTypeClick(Sender: TObject);
 begin
   UpdateValueMaxLength;
 end;

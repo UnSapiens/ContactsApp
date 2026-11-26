@@ -64,6 +64,9 @@ begin
   edtLastName.MaxLength := cMaxPersonNameLen;
   edtFirstName.MaxLength := cMaxPersonNameLen;
   edtMiddleName.MaxLength := cMaxPersonNameLen;
+
+  btnOk.Default := True;
+  btnCancel.Cancel := True;
 end;
 
 procedure TAddPersonForm.FormCreate(Sender: TObject);
