@@ -1,0 +1,29 @@
+# Скомпилированные бинарники и модули Delphi
+*.exe
+*.dll
+*.dcu
+*.bpl
+*.dcp
+*.obj
+*.o
+*.res.tmp
+__history/
+__recovery/
+Win32/
+Win64/
+
+# Локальные настройки среды и кэш IDE
+*.local
+*.identcache
+*.tvsconfig
+*.stat
+*.dsk
+*.dof
+*.cfg
+*.ddp
+*.~*
+
+# Локальный конфиг приложения и рабочие/бэкап файлы БД
+config.ini
+*.fbk
+*.log
