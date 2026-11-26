@@ -23,9 +23,11 @@ type
     btnCancel: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure dblcbTypeCloseUp(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
   private
     procedure InitCaptions;
+    procedure UpdateValueMaxLength;
     function IsValidEmail(const AEmail: string): Boolean;
     function SelectedTypeCode: string;
   public
@@ -43,6 +45,10 @@ uses
 
 {$R *.dfm}
 
+const
+  cContactCodeEmail = 'EMAIL';
+  cContactCodePhone = 'PHONE';
+
 procedure TAddContactForm.InitCaptions;
 begin
   Caption := cAddContactTitle;
@@ -50,13 +56,13 @@ begin
   lblValue.Caption := cLblContactValue;
   btnOk.Caption := cBtnSave;
   btnCancel.Caption := cBtnCancel;
-
   edtValue.MaxLength := cMaxContactValueLen;
 end;
 
 procedure TAddContactForm.FormCreate(Sender: TObject);
 begin
   InitCaptions;
+  dblcbType.OnCloseUp := dblcbTypeCloseUp;
 end;
 
 procedure TAddContactForm.FormShow(Sender: TObject);
@@ -64,6 +70,24 @@ begin
   dblcbType.ListSource := DM.dsContactTypes;
   if not DM.qryContactTypes.IsEmpty then
     dblcbType.KeyValue := DM.qryContactTypes.FieldByName('ID').AsInteger;
+  UpdateValueMaxLength;
+end;
+
+procedure TAddContactForm.dblcbTypeCloseUp(Sender: TObject);
+begin
+  UpdateValueMaxLength;
+end;
+
+procedure TAddContactForm.UpdateValueMaxLength;
+begin
+  if SelectedTypeCode = cContactCodePhone then
+    begin
+      edtValue.MaxLength := cMaxPhoneValueLen;
+      if Length(edtValue.Text) > cMaxPhoneValueLen then
+        edtValue.Text := Copy(edtValue.Text, 1, cMaxPhoneValueLen);
+    end
+  else
+    edtValue.MaxLength := cMaxContactValueLen;
 end;
 
 function TAddContactForm.SelectedTypeID: Integer;
@@ -90,8 +114,6 @@ begin
 end;
 
 procedure TAddContactForm.btnOkClick(Sender: TObject);
-const
-  cContactCodeEmail = 'EMAIL';
 var
   ContactValue: string;
 begin

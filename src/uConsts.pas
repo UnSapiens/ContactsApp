@@ -2,7 +2,7 @@ unit uConsts;
 
 interface
 
-resourcestring
+const
   // Параметры конфигурационного файла
   cConfigFileName     = 'config.ini';
   cIniSectionDb       = 'Database';
@@ -17,6 +17,15 @@ resourcestring
   cDefaultUserName    = 'SYSDBA';
   cDefaultPassword    = 'masterkey';
   cDefaultCharset     = 'UTF8';
+
+  // Максимальная длина полей ввода (соответствует схеме БД)
+  cMaxPersonNameLen   = 100;
+  cMaxContactValueLen = 255;
+  cMaxFilterTextLen   = 100;
+  cMaxAgeTextLen      = 3;
+  cMaxPhoneValueLen   = 20;
+
+resourcestring
 
   // Заголовки окон
   cAppTitle             = 'Справочник людей и контактов';
@@ -75,11 +84,6 @@ resourcestring
   cMsgDbNotFound        = 'Файл базы данных не найден: ';
   cMsgDbConnectFail     = 'Ошибка подключения к БД (';
 
-    // Максимальная длина полей ввода (соответствует схеме БД)
-  cMaxPersonNameLen   = 100;
-  cMaxContactValueLen = 255;
-  cMaxFilterTextLen   = 100;
-  cMaxAgeTextLen      = 3;
 implementation
 
 end.
