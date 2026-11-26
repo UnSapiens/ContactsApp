@@ -98,6 +98,10 @@ begin
   cbGender.Items.Add(cGenderMale);
   cbGender.Items.Add(cGenderFemale);
   cbGender.ItemIndex := cDefaultGenderIdx;
+
+  edtFio.MaxLength := cMaxFilterTextLen;
+  edtContact.MaxLength := cMaxFilterTextLen;
+  edtAge.MaxLength := cMaxAgeTextLen;
 end;
 
 function TMainForm.CalcMinLeftPanelWidth: Integer;

@@ -50,6 +50,8 @@ begin
   lblValue.Caption := cLblContactValue;
   btnOk.Caption := cBtnSave;
   btnCancel.Caption := cBtnCancel;
+
+  edtValue.MaxLength := cMaxContactValueLen;
 end;
 
 procedure TAddContactForm.FormCreate(Sender: TObject);

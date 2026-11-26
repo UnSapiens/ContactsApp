@@ -60,6 +60,10 @@ begin
   cbGender.Items.Add(cGenderMale);
   cbGender.Items.Add(cGenderFemale);
   cbGender.ItemIndex := cDefaultGenderIdx;
+
+  edtLastName.MaxLength := cMaxPersonNameLen;
+  edtFirstName.MaxLength := cMaxPersonNameLen;
+  edtMiddleName.MaxLength := cMaxPersonNameLen;
 end;
 
 procedure TAddPersonForm.FormCreate(Sender: TObject);

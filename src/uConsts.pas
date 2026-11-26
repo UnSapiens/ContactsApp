@@ -75,6 +75,11 @@ resourcestring
   cMsgDbNotFound        = 'Файл базы данных не найден: ';
   cMsgDbConnectFail     = 'Ошибка подключения к БД (';
 
+    // Максимальная длина полей ввода (соответствует схеме БД)
+  cMaxPersonNameLen   = 100;
+  cMaxContactValueLen = 255;
+  cMaxFilterTextLen   = 100;
+  cMaxAgeTextLen      = 3;
 implementation
 
 end.
